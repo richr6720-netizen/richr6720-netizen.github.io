@@ -6,7 +6,7 @@
 <title>Imad Khan — AI Agent Engineer</title>
 <meta name="description" content="Muhammad Imad Khan. AI agent engineer, full-stack and mobile developer, Linux and security. Co-founder of NeverApply.co, core engineer on RuhMesh, creator of Agent D.">
 <meta property="og:title" content="Imad Khan — AI Agent Engineer">
-<meta property="og:description" content="I build things that keep working when I am not in the room: AI agents, apps, servers, and the marketing machines that sell them.">
+<meta property="og:description" content="A critical thinker who builds: AI agents, apps, servers, and the marketing machines that sell them.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0c'/%3E%3Crect x='20' y='20' width='7' height='7' fill='%23ffffff'/%3E%3Cpath d='M6 7h5v18H6z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,6 +95,15 @@
   .step p { margin: 0; font-size: 15px; line-height: 1.5; color: #333438; }
   @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } .step { border-right: 0; border-bottom: 1px solid var(--paper-ink); } .step:last-child { border-bottom: 0; } }
 
+  .incident .intro { max-width: 760px; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(21px, 2.4vw, 27px); line-height: 1.25; color: #2b2c30; margin: -18px 0 36px; }
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1.5px solid var(--paper-ink); border-left: 1px solid #c9c8c2; }
+  .cases .c { padding: 24px 22px 28px; border-right: 1px solid #c9c8c2; border-bottom: 1px solid #c9c8c2; }
+  .cases .k { font-family: "JetBrains Mono", monospace; font-size: 11.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #6a6b70; }
+  .cases h4 { margin: 10px 0 10px; font-size: 21px; line-height: 1.18; letter-spacing: -.01em; color: var(--paper-ink); }
+  .cases p { margin: 0; font-size: 15.5px; line-height: 1.55; color: #333438; }
+  @media (max-width: 980px) { .cases { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .cases { grid-template-columns: 1fr; } }
+
   /* builds */
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .card { background: var(--ink-2); border: 1px solid var(--rule); border-top: 3px solid var(--text); padding: 22px 20px 24px; }
@@ -137,6 +146,7 @@
     <a class="logo" href="#top">Imad Khan<span>.</span></a>
     <div class="links">
       <a href="#work">Work</a>
+      <a href="#thinking">Thinking</a>
       <a href="#builds">Builds</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -150,8 +160,8 @@
     <div class="kicker">AI agent engineer · Peshawar, Pakistan · remote worldwide</div>
     <h1>Muhammad<span>Imad Khan</span></h1>
     <p class="claim">
-      I build things that keep working when I am not in the room: AI agents, apps, servers, and the marketing machines that sell them.
-      I run fleets of AI coding agents the way other people run departments, and <b>I check every number myself.</b>
+      I am a critical thinker who builds. I take a messy problem, find out what is actually true, then ship the thing that fixes it:
+      AI agents, apps, servers, and the marketing machines that sell them. <b>I check every number myself.</b>
       Give me the problem, not the process.
     </p>
     <div class="actions">
@@ -199,7 +209,6 @@
           <li>Output so far: <b>500+ rendered videos in 6 languages</b>, a 13-week calendar of 528 planned pieces, and up to 449 posts queued at once across 11 social accounts.</li>
           <li>Built <b>NeverApply Autofill</b>, a Chrome extension that fills job applications from a resume. 15 hiring-platform adapters plus LinkedIn Easy Apply. On 61 real forms it filled <b>591 of 597 fields correctly with 0 wrong</b>. First commit to release candidate in 5 days, with 2,144 unit tests and 37 browser tests.</li>
           <li>Raised resume-parsing accuracy from <b>69.9% to 93.9%</b> on 118 CVs.</li>
-          <li>Led the growth research that moved the company's plan from chasing reach to buyer intent, using product analytics instead of opinions.</li>
         </ul>
       </div>
     </article>
@@ -245,29 +254,32 @@
   </div>
 </section>
 
-<section class="incident">
+<section class="incident" id="thinking">
   <div class="wrap">
-    <div class="label">Incident file</div>
-    <h2>The queue that froze, and how I found out why.</h2>
-    <div class="steps">
-      <div class="step"><div class="k">Symptom</div><h4>Posts stuck, no errors</h4><p>Scheduled posts sat in the queue on our self-hosted publishing server. Every health check said green.</p></div>
-      <div class="step"><div class="k">Measure</div><h4>Zero workers listening</h4><p>I stopped trusting the dashboard and asked the job engine directly. No worker was polling the queue at all.</p></div>
-      <div class="step"><div class="k">Root cause</div><h4>A leak and a race</h4><p>Each restart orphaned a 1.4 GB worker process, and the app could boot before its job engine was ready and stay deaf forever.</p></div>
-      <div class="step"><div class="k">Fix</div><h4>Gate, clean, watch</h4><p>Health-gated start-up, a clean-restart tool that kills strays first, and a watchdog. Then SSH hardening after 782 failed logins in one hour.</p></div>
+    <div class="label">Proof of thinking</div>
+    <h2>The main thing is not what I built. It is how I got there.</h2>
+    <p class="intro">Anyone can list tools. These six cases show the part that matters: questioning the obvious answer, measuring, and only then building.</p>
+    <div class="cases">
+      <article class="c"><div class="k">01 · Root cause / DevOps</div><h4>The outage every dashboard called healthy</h4><p>Scheduled posts froze while every health check stayed green. I stopped trusting the dashboard and asked the job engine directly: zero workers were listening. The cause was leaked 1.4 GB processes plus a start-up race. I fixed both and added a watchdog.</p></article>
+      <article class="c"><div class="k">02 · AI evaluation</div><h4>I killed my own best idea with a benchmark</h4><p>For Agent D I wanted 1-bit model compression to work. Instead of arguing for it, I built a task bench and ran it: 1 of 8 tasks passed. I dropped the idea and chose the model that scored 14 of 20 at 23 tokens per second.</p></article>
+      <article class="c"><div class="k">03 · Growth / analytics</div><h4>The growth assumption that was wrong</h4><p>The plan assumed more reach meant more customers. I traced real buyers back to where they came from and showed that they arrive with intent, not from feeds. The company's marketing plan changed that week.</p></article>
+      <article class="c"><div class="k">04 · Graphics / performance</div><h4>A film studio on one 8 GB laptop</h4><p>I measured every lever instead of buying hardware. The right GPU path rendered 5× faster, a level-of-detail bake cut a frame from 30–50 s to 10.7 s, and SSD streaming cut peak VRAM from 1.77 to 0.43 GB. Result: a 4:52 Unreal Engine documentary and photoreal brand films.</p></article>
+      <article class="c"><div class="k">05 · Research</div><h4>25 documents in, one decision out</h4><p>The question was which route to use to recover platinum-group metals from spent catalytic converters. I worked through 24 papers and a patent, found that rhodium recovery is what separates the routes, and delivered a 75-page report with one ranked recommendation.</p></article>
+      <article class="c"><div class="k">06 · Systems design</div><h4>A city-scale emergency network, costed from one model</h4><p>Designed a proposal for an emergency communications network: 22 radio links, 36 sector radios, 60 connected buildings, an operations centre and drones. Every figure in the English and Pashto editions comes from a single cost model, reviewed in independent rounds before delivery.</p></article>
     </div>
   </div>
 </section>
 
 <section id="builds">
   <div class="wrap">
-    <div class="label">Selected builds</div>
+    <div class="label">Also built</div>
     <h2>Things I made because nobody else was going to.</h2>
     <div class="grid">
       <div class="card"><h4>AdForge</h4><div class="stack">Python · Playwright · FFmpeg</div><p>18 finished ad videos from only a logo and a website link. 82 claims, each tied to a source. Audio mastered to −14 LUFS with automatic quality checks.</p></div>
-      <div class="card"><h4>Local AI video stack</h4><div class="stack">ComfyUI · Wan · LTX · Blender · Unreal</div><p>AI video on an 8 GB laptop GPU by streaming model blocks from the SSD: peak VRAM down from 1.77 to 0.43 GB with identical output. A Blender bake that cut a frame from 30–50 s to 10.7 s.</p></div>
+      <div class="card"><h4>Unreal Engine documentary</h4><div class="stack">Unreal Engine 5 · Python · MCP</div><p>A 4:52 film: 12 photoreal shots rendered from a scripted shot factory, 8 motion-graphics explainers, Urdu voice-over and English subtitles. The engine was driven by AI agents through MCP.</p></div>
       <div class="card"><h4>WhatsApp AI business agent</h4><div class="stack">Next.js · Prisma · Meta Cloud API</div><p>Answers customers, hands over to staff, takes orders and bookings. Understands voice notes in English, Urdu and Pashto.</p></div>
-      <div class="card"><h4>Metals-recovery research report</h4><div class="stack">Python · headless Chrome</div><p>24 papers and a patent on recovering platinum-group metals, turned into a 75-page report with comparison tables and one ranked recommendation.</p></div>
       <div class="card"><h4>Agent skill library</h4><div class="stack">Claude Code · workflows</div><p>15 reusable playbooks my agents load on demand: GPU scheduling, render speed, video review loops, posting operations, and a lessons log of 87 retrospectives they must read first.</p></div>
+      <div class="card"><h4>Bilingual document pipeline</h4><div class="stack">Python · headless Chrome · RTL</div><p>Proposals and reports of 33 to 101 pages in English and Pashto, as PDF and Word, built from one source so the two languages and every number always agree.</p></div>
       <div class="card"><h4>Property walkthrough</h4><div class="stack">Three.js · 3D Tiles</div><p>3D virtual-tour prototype for real estate with guided tours and a WhatsApp enquiry button, built on the open-source SPHR engine.</p></div>
     </div>
   </div>
