@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imad Khan — AI Agent Engineer</title>
+<meta name="description" content="Muhammad Imad Khan. AI agent engineer, full-stack and mobile developer, Linux and security. Co-founder of NeverApply.co, core engineer on RuhMesh, creator of Agent D.">
+<meta property="og:title" content="Imad Khan — AI Agent Engineer">
+<meta property="og:description" content="I build things that keep working when I am not in the room: AI agents, apps, servers, and the marketing machines that sell them.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0c'/%3E%3Crect x='20' y='20' width='7' height='7' fill='%23ffffff'/%3E%3Cpath d='M6 7h5v18H6z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0b0b0c; --ink-2: #141416; --ink-3: #1d1d20; --rule: #2c2c31;
+    --text: #ecebe6; --dim: #a3a4a8; --hot: #ecebe6; --paper: #f4f3ee; --paper-ink: #0b0b0c;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--ink); color: var(--text); font-family: Inter, "Segoe UI", Arial, sans-serif;
+         font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  .mono { font-family: "JetBrains Mono", Consolas, monospace; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(11,11,12,.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  .logo { font-family: Archivo, sans-serif; font-weight: 900; font-size: 18px; letter-spacing: -.3px; text-decoration: none; text-transform: uppercase; }
+  .logo span { color: #6f7075; }
+  .links { display: flex; gap: 22px; align-items: center; }
+  .links a { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; text-decoration: none; color: var(--dim); }
+  .links a:hover { color: var(--text); }
+  .links a.cta { color: var(--ink); background: var(--hot); padding: 8px 12px; font-weight: 700; }
+  @media (max-width: 720px) { .links a:not(.cta) { display: none; } }
+
+  /* hero */
+  header.hero { padding: 84px 0 64px; border-bottom: 1px solid var(--rule); position: relative; }
+  .kicker { font-family: "JetBrains Mono", monospace; font-size: 12.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--dim); margin-bottom: 22px; }
+  h1 { font-family: Archivo, sans-serif; font-weight: 900; text-transform: uppercase; margin: 0;
+       font-size: clamp(46px, 10.4vw, 132px); line-height: .9; letter-spacing: -.035em; }
+  h1 span { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--text); }
+  .claim { margin: 34px 0 0; max-width: 900px; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(24px, 3.3vw, 38px); line-height: 1.2; font-weight: 400; color: var(--text); }
+  .claim b { font-weight: 400; font-style: italic; border-bottom: 1.5px solid var(--text); }
+  .actions { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 14px 20px; font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.4px;
+         text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--text); }
+  .btn.hot { background: var(--hot); border-color: var(--hot); color: var(--ink); }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--hot); }
+  .btn.hot:hover { box-shadow: 4px 4px 0 var(--text); }
+  .roles { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .roles span { border: 1px solid var(--rule); padding: 6px 11px; font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .6px; color: var(--dim); }
+
+  /* numbers */
+  .numbers { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--rule); }
+  .num { padding: 30px 22px 28px; border-right: 1px solid var(--rule); }
+  .num:last-child { border-right: 0; }
+  .num .n { font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(34px, 4.4vw, 54px); line-height: 1; letter-spacing: -.03em; }
+  .num .n em { font-style: normal; }
+  .num .l { margin-top: 10px; font-size: 14px; line-height: 1.4; color: var(--dim); }
+  @media (max-width: 900px) { .numbers { grid-template-columns: 1fr 1fr; } .num { border-bottom: 1px solid var(--rule); } .num:nth-child(2n) { border-right: 0; } .num:last-child { grid-column: 1 / -1; border-bottom: 0; } }
+
+  /* sections */
+  section { padding: 76px 0; border-bottom: 1px solid var(--rule); }
+  .label { display: flex; align-items: center; gap: 12px; font-family: "JetBrains Mono", monospace; font-size: 12.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--dim); margin-bottom: 26px; }
+  .label::before { content: ""; width: 11px; height: 11px; background: var(--hot); }
+  h2 { font-family: Archivo, sans-serif; font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 5vw, 56px); line-height: .98; letter-spacing: -.03em; margin: 0 0 40px; max-width: 900px; }
+
+  /* case studies */
+  .case { display: grid; grid-template-columns: 300px 1fr; gap: 40px; padding: 38px 0; border-top: 1px solid var(--rule); }
+  .case:first-of-type { border-top: 1.5px solid var(--text); }
+  .case .meta .idx { font-family: "JetBrains Mono", monospace; color: var(--dim); font-size: 13px; letter-spacing: 1.5px; }
+  .case h3 { font-family: Archivo, sans-serif; font-weight: 900; text-transform: uppercase; font-size: 30px; line-height: 1; letter-spacing: -.02em; margin: 10px 0 10px; }
+  .case .role { font-weight: 600; font-size: 15px; color: var(--text); }
+  .case .when { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim); letter-spacing: 1px; margin-top: 6px; text-transform: uppercase; }
+  .case .tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .case .tags span { font-family: "JetBrains Mono", monospace; font-size: 11px; border: 1px solid var(--rule); color: var(--dim); padding: 3px 7px; }
+  .case p.what { margin: 0 0 16px; font-size: 18px; color: var(--text); }
+  .case ul { margin: 0; padding: 0; list-style: none; }
+  .case li { position: relative; padding-left: 20px; margin-bottom: 10px; color: #d2d1cc; font-size: 16px; line-height: 1.55; }
+  .case li::before { content: ""; position: absolute; left: 0; top: 12px; width: 10px; height: 2px; background: var(--hot); }
+  .case li b { color: #fff; font-weight: 600; }
+  @media (max-width: 860px) { .case { grid-template-columns: 1fr; gap: 18px; } }
+
+  /* incident */
+  .incident { background: var(--paper); color: var(--paper-ink); }
+  .incident .label { color: #55565a; } .incident .label::before { background: var(--paper-ink); }
+  .incident h2 { color: var(--paper-ink); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1.5px solid var(--paper-ink); }
+  .step { padding: 22px 20px 24px; border-right: 1px solid var(--paper-ink); }
+  .step:last-child { border-right: 0; }
+  .step .k { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #6a6b70; font-weight: 700; }
+  .step h4 { margin: 8px 0 8px; font-size: 19px; line-height: 1.2; }
+  .step p { margin: 0; font-size: 15px; line-height: 1.5; color: #333438; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } .step { border-right: 0; border-bottom: 1px solid var(--paper-ink); } .step:last-child { border-bottom: 0; } }
+
+  /* builds */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .card { background: var(--ink-2); border: 1px solid var(--rule); border-top: 3px solid var(--text); padding: 22px 20px 24px; }
+  .card:hover { border-top-color: var(--hot); }
+  .card h4 { margin: 0; font-size: 19px; }
+  .card .stack { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .8px; color: var(--dim); margin: 6px 0 10px; text-transform: uppercase; }
+  .card p { margin: 0; font-size: 15px; line-height: 1.5; color: #cfcec9; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: 200px 1fr; border-top: 1.5px solid var(--text); }
+  .skills > div { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .skills .k { font-family: "JetBrains Mono", monospace; font-size: 12.5px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--text); font-weight: 700; }
+  .skills .v { color: #cfcec9; font-size: 16px; }
+  @media (max-width: 720px) { .skills { grid-template-columns: 1fr; } .skills .k { border-bottom: 0; padding-bottom: 0; } }
+
+  /* how */
+  .how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .how div { border: 1px solid var(--rule); padding: 24px 22px; }
+  .how b { display: block; font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-style: italic; font-size: 30px; line-height: 1.05; margin-bottom: 10px; color: #fff; }
+  .how p { margin: 0; color: #cfcec9; font-size: 16px; }
+  @media (max-width: 900px) { .how { grid-template-columns: 1fr; } }
+
+  /* contact */
+  .contact { padding: 96px 0 84px; border-bottom: 0; }
+  .contact h2 { font-size: clamp(40px, 8vw, 104px); margin-bottom: 26px; }
+  .contact h2 span { color: #6f7075; }
+  .contact p { max-width: 640px; color: #cfcec9; font-size: 19px; margin: 0 0 30px; }
+  .mail { font-family: "JetBrains Mono", monospace; font-size: clamp(18px, 3.2vw, 30px); font-weight: 700; color: var(--text); text-decoration: none; border-bottom: 3px solid var(--hot); padding-bottom: 4px; }
+  .mail:hover { color: var(--hot); }
+  .facts { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .facts span { border: 1px solid var(--rule); padding: 6px 11px; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim); }
+  footer { border-top: 1px solid var(--rule); padding: 22px 0 30px; font-family: "JetBrains Mono", monospace; font-size: 12px; color: #6f7075; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Imad Khan<span>.</span></a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#builds">Builds</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="Muhammad_Imad_Khan_CV.pdf">CV · PDF</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">AI agent engineer · Peshawar, Pakistan · remote worldwide</div>
+    <h1>Muhammad<span>Imad Khan</span></h1>
+    <p class="claim">
+      I build things that keep working when I am not in the room: AI agents, apps, servers, and the marketing machines that sell them.
+      I run fleets of AI coding agents the way other people run departments, and <b>I check every number myself.</b>
+      Give me the problem, not the process.
+    </p>
+    <div class="actions">
+      <a class="btn hot" href="Muhammad_Imad_Khan_CV.pdf">Download the CV</a>
+      <a class="btn" href="#work">See the work</a>
+    </div>
+    <div class="roles">
+      <span>Co-founder · NeverApply.co</span>
+      <span>Core engineer · RuhMesh</span>
+      <span>Creator · Agent D</span>
+      <span>Full-stack &amp; mobile</span>
+      <span>Linux &amp; DevOps</span>
+      <span>Security</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" style="padding:0">
+  <div class="numbers">
+    <div class="num"><div class="n">954</div><div class="l">commits in 15 days on Agent D, my local AI agent</div></div>
+    <div class="num"><div class="n">6,774</div><div class="l">automated tests guarding that codebase</div></div>
+    <div class="num"><div class="n">3,000<em>+</em></div><div class="l">job seekers on NeverApply.co, which I co-founded</div></div>
+    <div class="num"><div class="n">9.3<em>×</em></div><div class="l">less call bandwidth over Tor on the RuhMesh messenger</div></div>
+    <div class="num"><div class="n">0</div><div class="l">wrong answers in 597 form fields filled by my Chrome extension</div></div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="label">Work</div>
+    <h2>Three products. One engineer who does not wait to be told.</h2>
+
+    <article class="case">
+      <div class="meta">
+        <div class="idx">01</div>
+        <h3>NeverApply.co</h3>
+        <div class="role">Co-founder · Growth, Automation &amp; AI Tooling</div>
+        <div class="when">2026 – present · Kasovy</div>
+        <div class="tags"><span>TypeScript</span><span>Python</span><span>React 19</span><span>Manifest V3</span><span>FFmpeg</span><span>PostHog</span><span>Docker</span></div>
+      </div>
+      <div>
+        <p class="what">An AI agent that finds the right jobs, tailors the resume and applies for the member. My co-founder builds the core app. I own what makes it grow: the marketing, the content engine, the browser extension and the servers behind them. The same work feeds RemoteDXB, the company's UAE job board.</p>
+        <ul>
+          <li><b>Automated the marketing end to end.</b> A Python content engine researches, writes, renders, quality-checks and schedules videos and posts with almost no human time. The method stays in the company. The output is public.</li>
+          <li>Output so far: <b>500+ rendered videos in 6 languages</b>, a 13-week calendar of 528 planned pieces, and up to 449 posts queued at once across 11 social accounts.</li>
+          <li>Built <b>NeverApply Autofill</b>, a Chrome extension that fills job applications from a resume. 15 hiring-platform adapters plus LinkedIn Easy Apply. On 61 real forms it filled <b>591 of 597 fields correctly with 0 wrong</b>. First commit to release candidate in 5 days, with 2,144 unit tests and 37 browser tests.</li>
+          <li>Raised resume-parsing accuracy from <b>69.9% to 93.9%</b> on 118 CVs.</li>
+          <li>Led the growth research that moved the company's plan from chasing reach to buyer intent, using product analytics instead of opinions.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="meta">
+        <div class="idx">02</div>
+        <h3>RuhMesh</h3>
+        <div class="role">Software Engineer · Android, Web &amp; Desktop</div>
+        <div class="when">Apr 2026 – present · Afghan IT Solution</div>
+        <div class="tags"><span>Kotlin</span><span>Java</span><span>React</span><span>WebRTC</span><span>Tauri / Rust</span><span>Tor</span><span>Opus</span></div>
+      </div>
+      <div>
+        <p class="what">A private messenger with calls and no central server. End-to-end encrypted over Tor, local Wi-Fi and Bluetooth, built on the open-source Briar stack. Android, web and Windows desktop.</p>
+        <ul>
+          <li>Built voice and video calls, <b>group calls for up to 30 people on a local network</b> (5 over Tor), Android screen sharing shown live in the browser, photos and voice notes.</li>
+          <li>Measured Tor call audio at 268.8 kbit/s per direction, moved it to Opus and brought it down to 28.8. A <b>9.3× cut</b>.</li>
+          <li>Shipped the web client and the Windows desktop app. Six releases, v2.1.4 to v2.2.0.</li>
+          <li>Fixed a discovery freeze caused by <b>over 100,000 stuck network probes</b>, and calls that dropped at exactly 30 seconds.</li>
+          <li>Own release engineering: signing, CI, 357 automated web tests. Ran a 6-person field test team on a 97-test plan and wrote the reports in English and Pashto.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="meta">
+        <div class="idx">03</div>
+        <h3>Agent D</h3>
+        <div class="role">Creator &amp; Lead</div>
+        <div class="when">Oct 2026 – present · independent</div>
+        <div class="tags"><span>Python</span><span>llama.cpp</span><span>Ollama</span><span>Local LLMs</span><span>Multi-agent</span><span>Evals</span></div>
+      </div>
+      <div>
+        <p class="what">A desktop AI agent that plans, researches the web with sources, edits files, runs commands and splits work across helper models. Every model runs on the laptop itself. No cloud needed.</p>
+        <ul>
+          <li>Runs local models on an <b>8 GB laptop GPU</b>, with a router that picks lead and helper models by measured speed and a lease system so jobs take turns on the card.</li>
+          <li>31 agent tools, goal mode, model swarms, and three approval levels with a command classifier and prompt-injection fences.</li>
+          <li>Built it as a <b>software factory</b>: I act as controller, directing AI builder and reviewer agents through pull requests and test gates. 954 commits, 43 merged pull requests and about 221,000 lines of code, more than half of it tests, in 15 days.</li>
+          <li>Wrote my own benchmarks instead of trusting leaderboards. Chose the lead model on results, and tested 1-bit compression and <b>rejected it on the numbers</b>.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="incident">
+  <div class="wrap">
+    <div class="label">Incident file</div>
+    <h2>The queue that froze, and how I found out why.</h2>
+    <div class="steps">
+      <div class="step"><div class="k">Symptom</div><h4>Posts stuck, no errors</h4><p>Scheduled posts sat in the queue on our self-hosted publishing server. Every health check said green.</p></div>
+      <div class="step"><div class="k">Measure</div><h4>Zero workers listening</h4><p>I stopped trusting the dashboard and asked the job engine directly. No worker was polling the queue at all.</p></div>
+      <div class="step"><div class="k">Root cause</div><h4>A leak and a race</h4><p>Each restart orphaned a 1.4 GB worker process, and the app could boot before its job engine was ready and stay deaf forever.</p></div>
+      <div class="step"><div class="k">Fix</div><h4>Gate, clean, watch</h4><p>Health-gated start-up, a clean-restart tool that kills strays first, and a watchdog. Then SSH hardening after 782 failed logins in one hour.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="builds">
+  <div class="wrap">
+    <div class="label">Selected builds</div>
+    <h2>Things I made because nobody else was going to.</h2>
+    <div class="grid">
+      <div class="card"><h4>AdForge</h4><div class="stack">Python · Playwright · FFmpeg</div><p>18 finished ad videos from only a logo and a website link. 82 claims, each tied to a source. Audio mastered to −14 LUFS with automatic quality checks.</p></div>
+      <div class="card"><h4>Local AI video stack</h4><div class="stack">ComfyUI · Wan · LTX · Blender · Unreal</div><p>AI video on an 8 GB laptop GPU by streaming model blocks from the SSD: peak VRAM down from 1.77 to 0.43 GB with identical output. A Blender bake that cut a frame from 30–50 s to 10.7 s.</p></div>
+      <div class="card"><h4>WhatsApp AI business agent</h4><div class="stack">Next.js · Prisma · Meta Cloud API</div><p>Answers customers, hands over to staff, takes orders and bookings. Understands voice notes in English, Urdu and Pashto.</p></div>
+      <div class="card"><h4>Metals-recovery research report</h4><div class="stack">Python · headless Chrome</div><p>24 papers and a patent on recovering platinum-group metals, turned into a 75-page report with comparison tables and one ranked recommendation.</p></div>
+      <div class="card"><h4>Agent skill library</h4><div class="stack">Claude Code · workflows</div><p>15 reusable playbooks my agents load on demand: GPU scheduling, render speed, video review loops, posting operations, and a lessons log of 87 retrospectives they must read first.</p></div>
+      <div class="card"><h4>Property walkthrough</h4><div class="stack">Three.js · 3D Tiles</div><p>3D virtual-tour prototype for real estate with guided tours and a WhatsApp enquiry button, built on the open-source SPHR engine.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="label">Skills</div>
+    <h2>The stack, top to bottom.</h2>
+    <div class="skills">
+      <div class="k">AI &amp; agents</div><div class="v">Multi-agent orchestration (controller, builders, reviewers, critics), Claude Code and Claude API, MCP clients and tools, local LLMs (llama.cpp, Ollama, GGUF quantisation), evaluation benches, prompt-injection defence, Gemini API, ComfyUI</div>
+      <div class="k">Languages</div><div class="v">Python, TypeScript/JavaScript, Kotlin, Java, PHP, Rust, Bash, PowerShell, SQL, HTML/CSS</div>
+      <div class="k">Frameworks</div><div class="v">React, Next.js, Laravel, Chrome extensions (WXT, Manifest V3), Jetpack Compose, Tauri, WebRTC, Three.js, Tailwind, Prisma, Remotion, WordPress/WooCommerce</div>
+      <div class="k">Linux &amp; DevOps</div><div class="v">Ubuntu Server, WSL2 (Ubuntu and Kali), Docker Compose, Hetzner Cloud, Caddy, Cloudflare, Temporal, PostgreSQL, Redis, pm2, cron, SSH, GitHub Actions</div>
+      <div class="k">Security</div><div class="v">OWASP Top 10 testing, web application security review, vulnerability assessment, penetration-test support, bug-bounty research, responsible disclosure, Burp Suite, Kali Linux, server hardening, OAuth 2.1 / PKCE, end-to-end encryption, Tor</div>
+      <div class="k">Media &amp; growth</div><div class="v">FFmpeg, Playwright/Puppeteer, Blender, Unreal Engine, text-to-speech and audio mastering, PostHog analytics, Meta/TikTok/Threads APIs, marketing automation, e-commerce</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="label">How I work</div>
+    <h2>Before you call, know this.</h2>
+    <div class="how">
+      <div><b>Measure first</b><p>I report measured numbers: test runs, logs, git histories. If something failed, I say that too, with the output.</p></div>
+      <div><b>One person, a department's output</b><p>I direct AI agents like a team: clear briefs, independent reviewers, hard gates. I stay the one who decides.</p></div>
+      <div><b>No supervision needed</b><p>I find the root cause, fix it, and leave a written record so it never needs fixing twice.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2>Bring the hard problem<span>.</span></h2>
+    <p>Open to remote roles and contracts worldwide in AI agents, full-stack and mobile engineering, DevOps and security. I can start right away.</p>
+    <a class="mail" href="mailto:richr6720@gmail.com">richr6720@gmail.com</a>
+    <div class="facts">
+      <span>BSc Computer Science · 2024</span>
+      <span>Urdu · Pashto · English · Turkish</span>
+      <span>UTC+5 · flexible hours</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Muhammad Imad Khan · Peshawar, Pakistan</div>
+</footer>
+
+</body>
+</html>
